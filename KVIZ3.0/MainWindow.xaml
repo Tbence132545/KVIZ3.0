@@ -8,5 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+        <Canvas x:Name="container" HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
+            <Button IsEnabled="false" x:Name="start_btn" Content="Start quiz" Canvas.Left="330" Canvas.Top="170" Height="85" Width="140" Click="start_btn_Click"/>
+            <ComboBox x:Name="temavalaszto" Canvas.Left="330" Canvas.Top="98" Width="140" SelectionChanged="temakivalasztva"/>
+            <Label Content="Válasszon témát:" Canvas.Left="333" Canvas.Top="62"/>
+        </Canvas>
     </Grid>
 </Window>
