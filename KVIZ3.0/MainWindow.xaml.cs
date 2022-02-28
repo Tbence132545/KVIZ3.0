@@ -41,7 +41,10 @@ namespace KVIZ3._0
         
 
         private void start_btn_Click(object sender,RoutedEventArgs e) 
-        { 
+        {
+            Kviz ablak = new Kviz(fajlnev);
+            ablak.Show();
+            this.Close();
         }
         private void temakivalasztva(object sender, SelectionChangedEventArgs e)
         {

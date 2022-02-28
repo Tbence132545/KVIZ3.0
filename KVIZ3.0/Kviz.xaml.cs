@@ -183,7 +183,9 @@ namespace KVIZ3._0
 
         private void fomenu_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow fomenu = new MainWindow();
+            fomenu.Show();
+            this.Close();
         }
 
        
