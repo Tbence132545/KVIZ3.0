@@ -52,7 +52,41 @@ namespace KVIZ3._0
 
         private void result_btn_Click(object sender, RoutedEventArgs e)
         {
+            int correctAnswers = 0;
+            foreach (var x in kerdessor)
+            {
+                if (x.correctindex == x.kivalasztott)
+                {
+                    correctAnswers++;
+                }
+            }
+            List<string> nem_megvalaszolt = new List<string>();
+            foreach (var x in kerdessor)
+            {
 
+                if (x.kivalasztott == -1)
+                {
+                    nem_megvalaszolt.Add("A(z)" + (kerdessor.IndexOf(x) + 1) + ". kérdés nincs megválaszolva!");
+                }
+            }
+            if (nem_megvalaszolt.Count != 0)
+            {
+                foreach (string x in nem_megvalaszolt)
+                {
+                    MessageBox.Show(x);
+                }
+            }
+            else if (correctAnswers != kerdessor.Count)
+            {
+                MessageBox.Show(Convert.ToString("Hibás válaszok száma: " + Convert.ToString(kerdessor.Count - correctAnswers)));
+            }
+            else
+            {
+                MessageBox.Show("Hibátlan megoldás! Visszadobás a főmenübe.");
+                MainWindow fomenu = new MainWindow();
+                fomenu.Show();
+                this.Close();
+            }
         }
         private void LoadQuestion()
         {
