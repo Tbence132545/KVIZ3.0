@@ -96,12 +96,48 @@ namespace KVIZ3._0
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
+            if (progressCounter + 1 < kerdessor.Count)
+            {
+                progressCounter++;
+                LoadQuestion();
+                if (progressCounter >= 1)
+                {
+                    previous.IsEnabled = true;
 
+                }
+                progress.Value++;
+            }
+            if (progress.Value == kerdessor.Count - 1)
+            {
+                next.IsEnabled = false;
+                result_btn.IsEnabled = true;
+                progress_label.Content = progressCounter + 1 + "/" + kerdessor.Count;
+            }
+            progress_label.Content = progressCounter + 1 + "/" + kerdessor.Count;
         }
 
         private void previous_Click(object sender, RoutedEventArgs e)
         {
+            if (progressCounter - 1 >= 0)
+            {
 
+                if (progress.Value - 1 >= 0)
+                {
+                    next.IsEnabled = true;
+                    result_btn.IsEnabled = false;
+                    progressCounter--;
+                    LoadQuestion();
+                    progress.Value--;
+
+                }
+                progress_label.Content = progressCounter + 1 + "/" + kerdessor.Count;
+
+            }
+            else if (progress.Value == 1)
+            {
+                previous.IsEnabled = false;
+                progress_label.Content = progressCounter + 1 + "/" + kerdessor.Count;
+            }
         }
         private void optionuncheck(object sender, RoutedEventArgs e)
         {
