@@ -42,9 +42,15 @@ namespace KVIZ3._0
 
         private void start_btn_Click(object sender,RoutedEventArgs e) 
         {
+            try { 
             Kviz ablak = new Kviz(fajlnev);
             ablak.Show();
             this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("A fájl nem elérhető vagy nem létezik!");
+            }
         }
         private void temakivalasztva(object sender, SelectionChangedEventArgs e)
         {
